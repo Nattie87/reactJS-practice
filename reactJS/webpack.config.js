@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-var path    = require('path');
+var path = require('path');
 
 module.exports = {
   devtool: 'inline-source-map',
@@ -8,7 +8,6 @@ module.exports = {
     'webpack/hot/only-dev-server',
     './src'
   ],
-
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
@@ -20,10 +19,14 @@ module.exports = {
   module: {
     loaders: [
       {
-        /\.js?$,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
+        loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ]
 };
