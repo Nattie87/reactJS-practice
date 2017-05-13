@@ -1,5 +1,16 @@
 import React from 'react';
 
+const todos = [
+  {
+    task: 'Make React video',
+    isCompleted: false
+  },
+  {
+    task: 'Eat Lunch',
+    isCompleted: true
+  }
+];
+
 export default class App extends React.Component {
   render() {
     return (
