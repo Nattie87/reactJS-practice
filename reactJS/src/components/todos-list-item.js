@@ -12,20 +12,24 @@ export default class TodosListItem extends React.Component {
   renderActionsSection() {
     if (this.state.isEditing) {
       return (
-        <button onClick={this.onEditClick.bind(this)}>Save</button>
+        <td>
+        <button>Save</button>
         <button>Cancel</button>
+        </td>
       );
     }
     return (
+      <td>
       <button onClick={this.onEditClick.bind(this)}>Edit</button>
       <button>Delete</button>
+      </td>
     );
   }
   render() {
     return (
       <tr>
         <td>{this.props.task}</td>
-        {this.renderActionSection()}
+        {this.renderActionsSection()}
       </tr>
     );
   }
