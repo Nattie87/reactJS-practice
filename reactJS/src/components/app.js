@@ -31,6 +31,7 @@ export default class App extends React.Component {
           todos={this.state.todos}
           toggleTask={this.toggleTask.bind(this)}
           saveTask={this.saveTask.bind(this)}
+          deleteTask={this.deleteTask.bind(this)}
           />
       </div>
     );
@@ -55,4 +56,12 @@ export default class App extends React.Component {
     foundTodo.task = newTask;
     this.setState({ todos: this.state.todos });
   }
+
+  deleteTask(taskToDelete){
+    _.remove(this.state.todos, todo => todo.task === taskToDelete);
+    this.setState({ todos: this.state.todos });
+  }
 }
+
+
+// ._ are lodash methods. the dependency i installed earlier. like _.find
