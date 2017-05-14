@@ -22,9 +22,10 @@ export default class App extends React.Component {
       };
     }
   render() {
+    var inlineStyleH1 = {color: "yellow"};
     return (
       <div>
-        <h1>React ToDos App</h1>
+        <h1 style={inlineStyleH1}>React ToDos App</h1>
         <CreateTodo todos={this.state.todos} createTask={this.createTask.bind(this)}
  />
         <TodosList
